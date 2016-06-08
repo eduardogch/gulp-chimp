@@ -1,6 +1,6 @@
 {
   "name": "gulp-chimp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Gulp plugin to interact with the Chimp.js",
   "license": "MIT",
   "main": "index.js",
@@ -19,12 +19,15 @@
     "test": "node_modules/.bin/mocha"
   },
   "keywords": [
-    "Gulp",
-    "Chimp.js",
+    "gulp",
+    "chimp",
     "e2e",
-    "Automation",
-    "Selenium",
-    "Mocha"
+    "webdriverio",
+    "selenium",
+    "cucumber",
+    "bdd",
+    "saucelabs"
+    "mocha"
   ],
   "dependencies": {
     "gulp-util": "^3.0.7",
@@ -32,7 +35,6 @@
   },
   "devDependencies": {
     "chimp": "^0.35.0",
-    "gulp": "^3.8.7",
     "mocha": "^2.5.3",
     "should": "9.0.0"
  }

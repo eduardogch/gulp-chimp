@@ -1,8 +1,8 @@
 var path = require('path');
 var spawn = require('child_process').spawn;
-var chimpPath = path.resolve(process.cwd() + '/node_modules/.bin/chimp');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
+var chimpPath = path.resolve(process.cwd() + '/node_modules/.bin/chimp');
 
 // Consts
 const PLUGIN_NAME = 'gulp-chimp';
@@ -18,7 +18,10 @@ function gulpChimp() {
     chimp.stderr.pipe(process.stdout);
 }
 
-gulpChimp();
+// Start Function just for development
+if (process.mainModule.filename.indexOf("node_modules") === -1) {
+    gulpChimp();
+}
 
 var index = {
     gulpChimp: gulpChimp
