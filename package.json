@@ -1,0 +1,34 @@
+{
+  "name": "gulp-chimp",
+  "version": "1.0.2",
+  "description": "Gulp plugin to interact with the Chimp.js",
+  "license": "MIT",
+  "main": "index.js",
+  "author": "Eduardo Gonzalez <eduardo.gch@gmail.com>",
+  "url": "https://www.npmjs.com/package/gulp-chimp",
+  "homepage": "https://github.com/eduardogch/gulp-chimp#readme",
+  "bugs": {
+    "url": "https://github.com/eduardogch/gulp-chimp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardogch/gulp-chimp.git"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node_modules/.bin/mocha"
+  },
+  "keywords": [
+    "Gulp",
+    "Chimp.js",
+    "e2e",
+    "Automation",
+    "Selenium",
+    "Mocha"
+  ],
+  "dependencies": {
+    "chimp": "^0.35.0",
+    "mocha": "^2.5.3",
+    "should": "9.0.0"
+  }
+}
