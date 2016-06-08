@@ -27,8 +27,13 @@
     "Mocha"
   ],
   "dependencies": {
+    "gulp-util": "^3.0.7",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
     "chimp": "^0.35.0",
+    "gulp": "^3.8.7",
     "mocha": "^2.5.3",
     "should": "9.0.0"
-  }
+ }
 }
