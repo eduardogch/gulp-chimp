@@ -1,41 +1,42 @@
 {
-  "name": "gulp-chimp",
-  "version": "1.0.3",
-  "description": "Gulp plugin to interact with the Chimp.js",
-  "license": "MIT",
-  "main": "index.js",
-  "author": "Eduardo Gonzalez <eduardo.gch@gmail.com>",
-  "url": "https://www.npmjs.com/package/gulp-chimp",
-  "homepage": "https://github.com/eduardogch/gulp-chimp#readme",
-  "bugs": {
-    "url": "https://github.com/eduardogch/gulp-chimp/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eduardogch/gulp-chimp.git"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "test": "node_modules/.bin/mocha"
-  },
-  "keywords": [
-    "gulp",
-    "chimp",
-    "e2e",
-    "webdriverio",
-    "selenium",
-    "cucumber",
-    "bdd",
-    "saucelabs",
-    "mocha"
-  ],
-  "dependencies": {
-    "gulp-util": "^3.0.7",
-    "through2": "^0.6.3"
-  },
-  "devDependencies": {
-    "chimp": "^0.35.0",
-    "mocha": "^2.5.3",
-    "should": "9.0.0"
- }
+    "name": "gulp-chimp",
+    "version": "1.0.3",
+    "description": "Gulp plugin to interact with the Chimp.js",
+    "license": "MIT",
+    "main": "index.js",
+    "author": "Eduardo Gonzalez <eduardo.gch@gmail.com>",
+    "url": "https://www.npmjs.com/package/gulp-chimp",
+    "homepage": "https://github.com/eduardogch/gulp-chimp#readme",
+    "bugs": {
+        "url": "https://github.com/eduardogch/gulp-chimp/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eduardogch/gulp-chimp.git"
+    },
+    "scripts": {
+        "start": "node_modules/.bin/gulp chimp",
+        "test": "node_modules/.bin/mocha"
+    },
+    "keywords": [
+        "gulp",
+        "chimp",
+        "e2e",
+        "webdriverio",
+        "selenium",
+        "cucumber",
+        "bdd",
+        "saucelabs",
+        "mocha"
+    ],
+    "dependencies": {
+        "chimp": "^0.35.0",
+        "gulp-util": "^3.0.7",
+        "through2": "^0.6.3"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "mocha": "^2.5.3",
+        "should": "9.0.0"
+    }
 }
