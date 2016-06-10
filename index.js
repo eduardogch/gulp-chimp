@@ -1,42 +1,22 @@
-var path = require('path');
-var spawn = require('child_process').spawn;
-var gutil = require('gulp-util');
 var through = require('through2');
+var gutil = require('gulp-util');
 
-var PluginError = gutil.PluginError;
-var chimpPath = path.resolve(process.cwd() + '/node_modules/.bin/chimp');
 var PLUGIN_NAME = 'gulp-chimp';
+var PluginError = gutil.PluginError;
+var chimp = require('./source/chimp.js');
 
-function chimp() {
-    var args = [];
-    var chimp = spawn(chimpPath, args);
-    chimp.stdout.on('data', function(data) {
-        process.stdout.write(data.toString());
-    });
-    chimp.stderr.pipe(process.stdout);
+function someBodyShouldDoSomething(file) {
+    if (file.isNull()) {
+        throw new gutil.PluginError(PLUGIN_NAME, 'Options is required!');
+    }
 }
 
-module.exports = function(options) {
-
-    if (options.host === undefined) {
-        throw new gutil.PluginError(PLUGIN_NAME, '`host` is required!');
+module.exports = function (options) {
+    if (options === undefined) {
+        throw new gutil.PluginError(PLUGIN_NAME, 'Options is required!');
     }
-
-    return through.obj(function(file, enc, cb) {
-        if (file.isNull()) {
-            cb(null, file);
-            return;
-        }
-
-        if (file.isStream()) {
-            cb(new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported!'));
-            return;
-        }
-
-        chimp();
-
-    }, function(cb) {
-        gutil.log(PLUGIN_NAME + ": ", gutil.colors.green('good'));
-        cb();
+    chimp.init(options);
+    return through.obj(function (file, encoding, callback) {
+        callback(null, someBodyShouldDoSomething(file));
     });
 };

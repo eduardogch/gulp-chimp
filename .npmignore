@@ -10,6 +10,4 @@
 config.gypi
 CVS
 npm-debug.log
-/src
-/source
 .travis.yml
