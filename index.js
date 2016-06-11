@@ -30,6 +30,12 @@ function initChimp(options) {
     });
 }
 
+var index = {
+    initChimp: initChimp,
+    createOutputFolder: createOutputFolder,
+    someBodyShouldDoSomething: someBodyShouldDoSomething
+};
+
 module.exports = function (options) {
     async.series([
         function (cb) {
