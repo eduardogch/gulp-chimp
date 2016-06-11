@@ -1,5 +1,9 @@
 # gulp-chimp
-Gulp plugin to interact with the Chimp.js
+
+[Chimp.js](https://github.com/xolvio/chimp/) makes it super easy for developers to write automated tests (Selenium, WebDriverIO, )
+Saucelabs, Mocha, Cucumber, etc. etc.)
+
+[gulp-chimp](https://github.com/eduardogch/gulp-chimp/) to interact with the Chimp.js
 
 [![npm version](https://badge.fury.io/js/gulp-chimp.svg)](https://badge.fury.io/js/gulp-chimp)
 [![Build Status](https://travis-ci.org/eduardogch/gulp-chimp.svg?branch=master)](https://travis-ci.org/eduardogch/gulp-chimp)
@@ -13,11 +17,10 @@ npm install gulp-chimp --save-dev
 
 ## Usage
 
-Import NPM module in gulpfile.js
 ```
 var chimp = require('gulp-chimp');
 
-/* Chimp.js - Automated Testing with config file */
+/* Chimp.js - Automated Testing */
 gulp.task('chimp', function () {
     return gulp.src('e2e/test.spec.js')
         .pipe(chimp('chimp.conf.js'));
@@ -25,15 +28,6 @@ gulp.task('chimp', function () {
 ```
 
 ## Options
-
-```
-/* Chimp.js - Automated Testing simple Options */
-gulp.task('chimp-options', function () {
-    return gulp.src('e2e/test.spec.js')
-        .pipe(chimp([options]));
-});
-```
-### chimp([options])
 
 ##### verbose
 
@@ -52,5 +46,6 @@ Time to wait in milliseconds before a test automatically fails.
 ##### config
 
 Type: `object`
+Default `true`
 
-Pass config chimp.js object [chimp.conf.js](https://github.com/xolvio/chimp/blob/master/src/bin/default.js)
+chimp.conf.js template [chimp.conf.js](https://github.com/xolvio/chimp/blob/master/src/bin/default.js)
