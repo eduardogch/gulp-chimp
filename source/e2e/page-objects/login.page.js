@@ -12,7 +12,7 @@ var Login = Object.create({
      * define Project URL page
      */
     open: function() {
-        Project.open('/login');
+        Project.open('/');
     },
 });
 

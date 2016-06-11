@@ -1,42 +1,48 @@
 {
-    "name": "gulp-chimp",
-    "version": "1.0.5",
-    "description": "Gulp plugin to interact with the Chimp.js",
-    "license": "MIT",
-    "main": "index.js",
-    "author": "Eduardo Gonzalez <eduardo.gch@gmail.com>",
-    "url": "https://www.npmjs.com/package/gulp-chimp",
-    "homepage": "https://github.com/eduardogch/gulp-chimp#readme",
-    "bugs": {
-        "url": "https://github.com/eduardogch/gulp-chimp/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/eduardogch/gulp-chimp.git"
-    },
-    "scripts": {
-        "start": "node_modules/.bin/gulp chimp",
-        "test": "node_modules/.bin/mocha"
-    },
-    "keywords": [
-        "gulp",
-        "chimp",
-        "e2e",
-        "webdriverio",
-        "selenium",
-        "cucumber",
-        "bdd",
-        "saucelabs",
-        "mocha"
-    ],
-    "dependencies": {
-        "chimp": "^0.35.0",
-        "gulp-util": "^3.0.7",
-        "through2": "^0.6.3"
-    },
-    "devDependencies": {
-        "gulp": "^3.9.1",
-        "mocha": "^2.5.3",
-        "should": "9.0.0"
-    }
+  "name": "gulp-chimp",
+  "version": "1.0.5",
+  "description": "Gulp plugin to interact with the Chimp.js",
+  "license": "MIT",
+  "main": "index.js",
+  "author": "Eduardo Gonzalez <eduardo.gch@gmail.com>",
+  "url": "https://www.npmjs.com/package/gulp-chimp",
+  "homepage": "https://github.com/eduardogch/gulp-chimp#readme",
+  "bugs": {
+    "url": "https://github.com/eduardogch/gulp-chimp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardogch/gulp-chimp.git"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/gulp start",
+    "e2e": "node_modules/.bin/gulp chimp",
+    "test": "node_modules/.bin/mocha"
+  },
+  "keywords": [
+    "gulp",
+    "chimp",
+    "e2e",
+    "webdriverio",
+    "selenium",
+    "cucumber",
+    "bdd",
+    "saucelabs",
+    "mocha"
+  ],
+  "dependencies": {
+    "chimp": "^0.35.0",
+    "gulp-util": "^3.0.7",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.1.0",
+    "mocha": "^2.5.3",
+    "morgan": "^1.7.0",
+    "should": "9.0.0"
+  }
 }

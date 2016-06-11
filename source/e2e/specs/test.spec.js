@@ -8,7 +8,7 @@ describe('Login e2e Test', function() {
 
     afterEach(function() {
         var imageName = (this.currentTest.title).replace(/\s/g, '');
-        browser.saveScreenshot("./e2e_output/screenshots/" + imageName + ".png");
+        browser.saveScreenshot("./source/output/screenshots/" + imageName + ".png");
     });
 
     it('Should title be "Hola Gulp Chimp.js" @focus', function() {
@@ -16,9 +16,9 @@ describe('Login e2e Test', function() {
     });
 
     it('Should be able to Login @focus', function() {
-        Login.inputUserName().setValue('Eduardo');
-        Login.inputPassword().setValue('12345');
+        Login.userName().setValue('Eduardo');
+        Login.password().setValue('12345');
         Login.loginButton().click();
-        expect(browser.getUrl()).to.equal('http://localhost:3001/login');
+        expect(browser.getUrl()).to.equal('http://localhost:3000/home');
     });
 });

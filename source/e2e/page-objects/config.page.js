@@ -3,8 +3,8 @@
  */
 var Project = function() {
     this.env    = "develop";
-    this.env    = "qa";
-    this.env    = "production";
+    // this.env    = "qa";
+    // this.env    = "production";
     this.envURL = "";
 };
 
@@ -13,7 +13,7 @@ var Project = function() {
  */
 Project.prototype.open = function(path) {
     if (this.env === "develop") {
-        this.envURL = "http://localhost:3001";
+        this.envURL = "http://localhost:3000";
     }
     if (this.env === "qa") {
         this.envURL = "http://localhost:3002";
