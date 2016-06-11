@@ -1,22 +1,48 @@
-var through = require('through2');
 var gutil = require('gulp-util');
+var path = require('path');
+var fs = require('fs');
+var exec = require('child_process').exec;
+var async = require("async");
 
 var PLUGIN_NAME = 'gulp-chimp';
 var PluginError = gutil.PluginError;
-var chimp = require('./source/chimp.js');
+var chimpPath = path.resolve(process.cwd() + '/node_modules/.bin/chimp');
 
-function someBodyShouldDoSomething(file) {
-    if (file.isNull()) {
+function someBodyShouldDoSomething(options) {
+    if (options === undefined) {
         throw new gutil.PluginError(PLUGIN_NAME, 'Options is required!');
     }
 }
 
-module.exports = function (options) {
-    if (options === undefined) {
-        throw new gutil.PluginError(PLUGIN_NAME, 'Options is required!');
+function createOutputFolder(pathOutput) {
+    var e2eOutput = path.resolve(process.cwd() + pathOutput);
+    if (!fs.existsSync(e2eOutput)) {
+        fs.mkdirSync(e2eOutput);
+        fs.mkdirSync(e2eOutput + "/logs");
+        fs.mkdirSync(e2eOutput + "/screenshots");
     }
-    chimp.init(options);
-    return through.obj(function (file, encoding, callback) {
-        callback(null, someBodyShouldDoSomething(file));
+}
+
+function initChimp(options) {
+    var chimp = exec(chimpPath + " " + options);
+    chimp.stdout.on('data', function (data) {
+        process.stdout.write(data);
     });
+}
+
+module.exports = function (options) {
+    async.series([
+        function (cb) {
+            someBodyShouldDoSomething(options);
+            cb();
+        },
+        function (cb) {
+            createOutputFolder('/source/output');
+            cb();
+        },
+        function (cb) {
+            initChimp(options);
+            cb();
+        }
+    ]);
 };

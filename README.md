@@ -15,19 +15,28 @@ In the terminal run the following command
 npm install gulp-chimp --save-dev
 ```
 
-## Usage
+## Usage with chimp.conf.js file
 
 ```
-var chimp = require('gulp-chimp');
-
-/* Chimp.js - Automated Testing */
+/* Chimp.js - Automated Testing without Options */
 gulp.task('chimp', function () {
-    return gulp.src('e2e/test.spec.js')
-        .pipe(chimp('chimp.conf.js'));
+    return chimp('./chimp.conf.js');
 });
 ```
 
-## Options
+## Usage with options
+
+```
+/* Chimp.js - Automated Testing with Options */
+gulp.task('chimp-options', function () {
+    return chimp({
+        path: './source/e2e/spec',
+        log: 'verbose',
+        timeout: 6000,
+        env: 'development'
+    });
+});
+```
 
 ##### verbose
 

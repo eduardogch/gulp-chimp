@@ -31,12 +31,11 @@
     "mocha"
   ],
   "dependencies": {
+    "async": "^2.0.0-rc.6",
     "chimp": "^0.35.0",
-    "gulp-util": "^3.0.7",
-    "through2": "^0.6.3"
+    "gulp-util": "^3.0.7"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
