@@ -24,6 +24,12 @@ gulp.task('chimp', function () {
 });
 ```
 
+##### config
+
+Type: `object`<br>
+Default `true`<br>
+File  [chimp.conf.js](https://github.com/eduardogch/gulp-chimp/blob/master/chimp.conf.js)
+
 ## Usage with options
 
 ```
@@ -31,30 +37,41 @@ gulp.task('chimp', function () {
 gulp.task('chimp-options', function () {
     return chimp({
         path: './source/e2e/spec',
-        log: 'verbose',
-        timeout: 6000,
-        env: 'development'
+        browser: 'chrome',
+        debug: false,
+        log: 'info',
+        timeout: 60000,
+        port: 2356
     });
 });
 ```
 
-##### verbose
+##### path
+
+Type: `string`<br>
+Default: `./source/e2e/spec`
+
+##### browser
+
+Type: `string`<br>
+Default `chrome`
+
+##### debug
 
 Type: `boolean`<br>
-Default: `false`
+Default `false`
 
-Display debug messages.
+##### log
+
+Type: `string`<br>
+Default: `info`
 
 ##### timeout
 
 Type: `number`<br>
-Default `5000`
+Default `60000`
 
-Time to wait in milliseconds before a test automatically fails.
+##### port
 
-##### config
-
-Type: `object`
-Default `true`
-
-chimp.conf.js template [chimp.conf.js](https://github.com/xolvio/chimp/blob/master/src/bin/default.js)
+Type: `number`<br>
+Default `2356`

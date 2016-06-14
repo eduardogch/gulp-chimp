@@ -8,10 +8,10 @@ describe('Login e2e Test', function() {
 
     afterEach(function() {
         var imageName = (this.currentTest.title).replace(/\s/g, '');
-        browser.saveScreenshot("./source/output/screenshots/" + imageName + ".png");
+        browser.saveScreenshot('./source/output/screenshots/' + imageName + '.png');
     });
 
-    it('Should title be "Hola Gulp Chimp.js" @focus', function() {
+    it('Should title be Hola Gulp Chimp.js @focus', function() {
         expect(browser.getTitle()).to.equal('Hola Gulp Chimp.js');
     });
 

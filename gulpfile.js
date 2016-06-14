@@ -1,24 +1,27 @@
-var gulp = require('gulp');
-var nodemon = require('gulp-nodemon');
-var chimp = require('./index.js');
+const gulp = require('gulp');
+const nodemon = require('gulp-nodemon');
+const chimp = require('./index.js');
+
 
 /* Chimp.js - Automated Testing without Options */
-gulp.task('chimp', function () {
+gulp.task('chimp', () => {
     return chimp('./chimp.conf.js');
 });
 
 /* Chimp.js - Automated Testing with Options */
-gulp.task('chimp-options', function () {
+gulp.task('chimp-options', () => {
     return chimp({
         path: './source/e2e/spec',
-        log: 'verbose',
-        timeout: 6000,
-        env: 'development'
+        browser: 'chrome',
+        debug: false,
+        log: 'info',
+        timeout: 60000,
+        port: 2345
     });
 });
 
 /* Start express.js server for testing */
-gulp.task('start', function () {
+gulp.task('start', () => {
     nodemon({
         script: './source/app/server.js',
         ext: 'js html',
