@@ -17,7 +17,8 @@
   "scripts": {
     "start": "node_modules/.bin/gulp start",
     "e2e": "node_modules/.bin/gulp chimp",
-    "test": "node_modules/.bin/mocha"
+    "test": "node_modules/.bin/mocha",
+    "coverage": "node_modules/.bin/istanbul cover _mocha"
   },
   "keywords": [
     "gulp",
@@ -38,6 +39,7 @@
   "devDependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
+    "istanbul": "^0.4.3",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.1.0",
     "mocha": "^2.5.3",

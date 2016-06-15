@@ -46,7 +46,7 @@ module.exports = {
 
     // - - - - MOCHA  - - - -
     mocha: true,
-    path: './source/e2e',
+    path: './source/e2e/specs',
     mochaTimeout: 60000,
     mochaReporter: 'spec',
     mochaSlow: 10000,

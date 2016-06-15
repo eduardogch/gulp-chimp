@@ -1,7 +1,6 @@
 # gulp-chimp
 
-[Chimp.js](https://github.com/xolvio/chimp/) makes it super easy for developers to write automated tests (Selenium, WebDriverIO, )
-Saucelabs, Mocha, Cucumber, etc. etc.)
+[Chimp.js](https://github.com/xolvio/chimp/) makes it super easy for developers to write automated tests (Selenium, WebDriverIO, Saucelabs, Mocha, Cucumber, etc. etc.)
 
 [gulp-chimp](https://github.com/eduardogch/gulp-chimp/) to interact with the Chimp.js
 
@@ -36,12 +35,12 @@ File  [chimp.conf.js](https://github.com/eduardogch/gulp-chimp/blob/master/chimp
 /* Chimp.js - Automated Testing with Options */
 gulp.task('chimp-options', function () {
     return chimp({
-        path: './source/e2e/spec',
+        path: './source/e2e/specs/',
         browser: 'chrome',
-        debug: false,
+        debug: true,
         log: 'info',
         timeout: 60000,
-        port: 2356
+        port: 2345
     });
 });
 ```

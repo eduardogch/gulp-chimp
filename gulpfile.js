@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
 const chimp = require('./index.js');
 
-
 /* Chimp.js - Automated Testing without Options */
 gulp.task('chimp', () => {
     return chimp('./chimp.conf.js');
@@ -11,9 +10,9 @@ gulp.task('chimp', () => {
 /* Chimp.js - Automated Testing with Options */
 gulp.task('chimp-options', () => {
     return chimp({
-        path: './source/e2e/spec',
+        path: './source/e2e/specs/',
         browser: 'chrome',
-        debug: false,
+        debug: true,
         log: 'info',
         timeout: 60000,
         port: 2345
