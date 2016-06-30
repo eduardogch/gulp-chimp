@@ -1,6 +1,6 @@
 {
   "name": "gulp-chimp",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Gulp plugin to interact with the Chimp.js",
   "license": "MIT",
   "main": "index.js",
@@ -32,9 +32,9 @@
     "mocha"
   ],
   "dependencies": {
-    "async": "^2.0.0-rc.6",
-    "chimp": "^0.35.0",
-    "gulp-util": "^3.0.7"
+    "async": "*",
+    "chimp": "*",
+    "gulp-util": "*"
   },
   "devDependencies": {
     "body-parser": "^1.15.1",
