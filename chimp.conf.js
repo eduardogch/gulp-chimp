@@ -36,7 +36,7 @@ module.exports = {
     name: '',
     user: '',
     key: '',
-    port: 2234,
+    port: 2235,
     host: null,
 
     // - - - - SAUCELABS - - - -
@@ -51,7 +51,7 @@ module.exports = {
         logLevel: 'silent',
         logOutput: './e2e_output/logs',
         host: '127.0.0.1',
-        port: 4444,
+        port: 4445,
         path: '/wd/hub',
         baseUrl: 'http://localhost',
         coloredLogs: true,

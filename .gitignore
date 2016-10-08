@@ -16,7 +16,7 @@ coverage
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
-
+a
 # node-waf configuration
 .lock-wscript
 
@@ -32,4 +32,4 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-source/e2e_output/*
+e2e_output

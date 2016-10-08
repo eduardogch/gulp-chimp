@@ -14,7 +14,7 @@
             "name": "I visit \"http://www.google.com\"",
             "result": {
               "status": "passed",
-              "duration": 329367796
+              "duration": 2213489308
             },
             "line": 9,
             "match": {
@@ -27,7 +27,7 @@
             "name": "I see the title of \"Google\"",
             "result": {
               "status": "passed",
-              "duration": 8532209
+              "duration": 16553584
             },
             "line": 10,
             "match": {
@@ -39,7 +39,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 187217
+              "duration": 157589
             },
             "hidden": true,
             "match": {
@@ -51,6 +51,59 @@
           {
             "name": "@watch",
             "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "use-browser-inside-steps;visit-github",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Visit Github",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I visit \"http://www.github.com\"",
+            "result": {
+              "status": "passed",
+              "duration": 1672104676
+            },
+            "line": 14,
+            "match": {
+              "location": "/Users/eduardogonzalez/Apps/gulp-chimp/features/step_definitions/webdriver-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I see the title of \"How people build software · GitHub\"",
+            "result": {
+              "status": "passed",
+              "duration": 11304662
+            },
+            "line": 15,
+            "match": {
+              "location": "/Users/eduardogonzalez/Apps/gulp-chimp/features/step_definitions/webdriver-steps.js:7"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 101518
+            },
+            "hidden": true,
+            "match": {
+              "location": "/Users/eduardogonzalez/Apps/gulp-chimp/node_modules/chimp/dist/lib/cucumberjs/hooks.js:76"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@not-watch",
+            "line": 12
           }
         ],
         "type": "scenario"

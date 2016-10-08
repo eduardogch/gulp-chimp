@@ -35,7 +35,7 @@ File  [chimp.conf.js](https://github.com/eduardogch/gulp-chimp/blob/master/chimp
 /* Chimp.js - Automated Testing with Options */
 gulp.task('chimp-options', function () {
     return chimp({
-        path: './source/e2e/specs/',
+        path: './features',
         browser: 'chrome',
         debug: true,
         log: 'info',
@@ -48,7 +48,7 @@ gulp.task('chimp-options', function () {
 ##### path
 
 Type: `string`<br>
-Default: `./source/e2e/spec`
+Default: `./features`
 
 ##### browser
 

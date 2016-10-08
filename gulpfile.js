@@ -10,7 +10,7 @@ gulp.task('chimp', ['start'], () => {
 /* Chimp.js - Automated Testing with Options */
 gulp.task('chimp-options', ['start'], () => {
     return chimp({
-        path: './source/e2e/specs/',
+        path: './features',
         browser: 'chrome',
         debug: true,
         log: 'info',

@@ -11,3 +11,4 @@ config.gypi
 CVS
 npm-debug.log
 .travis.yml
+e2e_output
