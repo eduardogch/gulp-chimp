@@ -3,12 +3,12 @@ const nodemon = require('gulp-nodemon');
 const chimp = require('./index.js');
 
 /* Chimp.js - Automated Testing without Options */
-gulp.task('chimp', () => {
+gulp.task('chimp', ['start'], () => {
     return chimp('./chimp.conf.js');
 });
 
 /* Chimp.js - Automated Testing with Options */
-gulp.task('chimp-options', () => {
+gulp.task('chimp-options', ['start'], () => {
     return chimp({
         path: './source/e2e/specs/',
         browser: 'chrome',

@@ -1,28 +1,47 @@
 module.exports = {
     // - - - - CHIMP - - - -
     watch: true,
-    watchTags: '@focus',
+    watchTags: '@watch,@focus',
+    domainSteps: null,
+    e2eSteps: null,
+    fullDomain: false,
+    domainOnly: false,
+    e2eTags: '@e2e',
     watchWithPolling: false,
-    criticalSteps: null,
-    criticalTag: '@critical',
     server: false,
     serverPort: 8060,
     serverHost: 'localhost',
     sync: true,
     offline: false,
+    showXolvioMessages: true,
+
+    // - - - - CUCUMBER - - - -
+    path: './features',
+    format: 'pretty',
+    tags: '~@ignore',
+    singleSnippetPerFile: true,
+    recommendedFilenameSeparator: '_',
+    chai: false,
+    screenshotsOnError: true,
+    screenshotsPath: './e2e_output/screenshots',
+    captureAllStepScreenshots: false,
+    saveScreenshotsToDisk: true,
+    saveScreenshotsToReport: true,
+    jsonOutput: './e2e_output/json',
+    conditionOutput: true,
 
     // - - - - SELENIUM  - - - -
-    browser: 'chrome',
+    browser: 'phantomjs',
     platform: 'ANY',
-    name: 'MyProDesk',
+    name: '',
     user: '',
     key: '',
     port: 2234,
     host: null,
 
     // - - - - SAUCELABS - - - -
-    // user: "userName",
-    // key: "xxxxxxxx-xxxx-xxx-xxxx-aaaaaaaaaaaa",
+    // user: "",
+    // key: "",
     // port: 80,
     // host: "ondemand.saucelabs.com",
 
@@ -30,23 +49,49 @@ module.exports = {
     webdriverio: {
         desiredCapabilities: {},
         logLevel: 'silent',
-        logOutput: './source/output/logs',
+        logOutput: './e2e_output/logs',
         host: '127.0.0.1',
         port: 4444,
         path: '/wd/hub',
         baseUrl: 'http://localhost',
         coloredLogs: true,
-        screenshotPath: './source/output/screenshots',
+        screenshotPath: './e2e_output/screenshots',
         waitforTimeout: 500,
         waitforInterval: 250,
+    },
+
+    // - - - - SELENIUM-STANDALONE
+    seleniumStandaloneOptions: {
+        // check for more recent versions of selenium here:
+        // http://selenium-release.storage.googleapis.com/index.html
+        version: '2.53.1',
+        baseURL: 'https://selenium-release.storage.googleapis.com',
+        drivers: {
+            chrome: {
+                // check for more recent versions of chrome driver here:
+                // http://chromedriver.storage.googleapis.com/index.html
+                version: '2.22',
+                arch: process.arch,
+                baseURL: 'https://chromedriver.storage.googleapis.com'
+            },
+            ie: {
+                // check for more recent versions of internet explorer driver here:
+                // http://selenium-release.storage.googleapis.com/index.html
+                version: '2.50.0',
+                arch: 'ia32',
+                baseURL: 'https://selenium-release.storage.googleapis.com'
+            }
+        }
     },
 
     // - - - - SESSION-MANAGER  - - - -
     noSessionReuse: false,
 
     // - - - - MOCHA  - - - -
-    mocha: true,
-    path: './source/e2e/specs',
+    mocha: false,
+    // path: './source/e2e',
+    mochaTags: '',
+    mochaGrep: null,
     mochaTimeout: 60000,
     mochaReporter: 'spec',
     mochaSlow: 10000,

@@ -47,6 +47,9 @@ function initChimpGlobal(options) {
 
 function initChimpModule(options) {
     var Chimp = require('chimp');
+    options._ = [
+        './node_modules/.bin/chimp.js'
+    ];
     var chimp = new Chimp(options);
     chimp.run(function () {
     });

@@ -1,0 +1,66 @@
+[
+  {
+    "description": "  As a developer\n  I want to have webdriver available to me in my steps\n  So that I don't have to configure my world object and I focus on testing",
+    "elements": [
+      {
+        "id": "use-browser-inside-steps;visit-google",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Visit Google",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I visit \"http://www.google.com\"",
+            "result": {
+              "status": "passed",
+              "duration": 329367796
+            },
+            "line": 9,
+            "match": {
+              "location": "/Users/eduardogonzalez/Apps/gulp-chimp/features/step_definitions/webdriver-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I see the title of \"Google\"",
+            "result": {
+              "status": "passed",
+              "duration": 8532209
+            },
+            "line": 10,
+            "match": {
+              "location": "/Users/eduardogonzalez/Apps/gulp-chimp/features/step_definitions/webdriver-steps.js:7"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 187217
+            },
+            "hidden": true,
+            "match": {
+              "location": "/Users/eduardogonzalez/Apps/gulp-chimp/node_modules/chimp/dist/lib/cucumberjs/hooks.js:76"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@watch",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "use-browser-inside-steps",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Use browser inside steps",
+    "tags": [],
+    "uri": "/Users/eduardogonzalez/Apps/gulp-chimp/features/webdriver.feature"
+  }
+]
