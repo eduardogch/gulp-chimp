@@ -1,5 +1,5 @@
 var should = require('should'),
-    fs = require('fs-extra'),
+    fs = require('fs'),
     path = require('path');
 
 describe('Test index.js', function() {
