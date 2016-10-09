@@ -1,8 +1,8 @@
 # gulp-chimp
 
-[Chimp.js](https://github.com/xolvio/chimp/) makes it easy for developers to write automated/e2e tests for web applications with a technology stack for Selenium, WebDriverIO, Saucelabs, Mocha and Cucumber
+[Chimp.js](https://github.com/xolvio/chimp/) makes it easy for developers to write automated/e2e tests for web applications with a technology stack for Selenium, WebDriverIO, Saucelabs, Mocha and Cucumber.
 
-[gulp-chimp](https://github.com/eduardogch/gulp-chimp/) is a gulp plugin to interact with the Chimp.js in a gulp task.
+[gulp-chimp](https://www.npmjs.com/package/gulp-chimp) is a wrapper to interact with Chimp.js in a gulp task.
 
 [![npm version](https://badge.fury.io/js/gulp-chimp.svg)](https://badge.fury.io/js/gulp-chimp)
 [![Build Status](https://travis-ci.org/eduardogch/gulp-chimp.svg?branch=master)](https://travis-ci.org/eduardogch/gulp-chimp)
