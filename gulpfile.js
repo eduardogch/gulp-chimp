@@ -1,14 +1,16 @@
 const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
 const chimp = require('./index.js');
+const runSequence = require('run-sequence');
+const browserSync = require('browser-sync');
 
 /* Chimp.js - Automated Testing without Options */
-gulp.task('chimp', ['start'], () => {
+gulp.task('chimp', ['nodemon'], () => {
     return chimp('./chimp.conf.js');
 });
 
 /* Chimp.js - Automated Testing with Options */
-gulp.task('chimp-options', ['start'], () => {
+gulp.task('chimp-options', ['nodemon'], () => {
     return chimp({
         path: './source/e2e/features',
         browser: 'chrome',
@@ -20,7 +22,7 @@ gulp.task('chimp-options', ['start'], () => {
 });
 
 /* Start express.js server for testing */
-gulp.task('start', () => {
+gulp.task('nodemon', () => {
     nodemon({
         script: './source/app/server.js',
         ext: 'js html',
@@ -28,4 +30,21 @@ gulp.task('start', () => {
             'NODE_ENV': 'development'
         }
     });
+});
+
+/* Start up browser syncing for local dev */
+gulp.task('browser-sync', function () {
+    browserSync({
+        proxy: 'localhost:3000',
+        port: 3001,
+        notify: true,
+        open: 'external'
+    });
+});
+
+gulp.task('default', () => {
+    runSequence(
+        'nodemon',
+        'browser-sync'
+    );
 });
