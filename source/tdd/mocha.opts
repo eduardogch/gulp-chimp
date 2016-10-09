@@ -1,5 +1,5 @@
 --require should
---reporter spec
+--reporter mocha-istanbul
 --ui bdd
 --recursive
 --colors

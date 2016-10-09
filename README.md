@@ -1,42 +1,39 @@
 # gulp-chimp
 
-[Chimp.js](https://github.com/xolvio/chimp/) makes it super easy for developers to write automated tests (Selenium, WebDriverIO, Saucelabs, Mocha, Cucumber, etc. etc.)
+[Chimp.js](https://github.com/xolvio/chimp/) makes it easy for developers to write automated/e2e tests for web applications with a technology stack for Selenium, WebDriverIO, Saucelabs, Mocha and Cucumber
 
-[gulp-chimp](https://github.com/eduardogch/gulp-chimp/) to interact with the Chimp.js
+[gulp-chimp](https://github.com/eduardogch/gulp-chimp/) is a gulp plugin to interact with the Chimp.js in a gulp task.
 
 [![npm version](https://badge.fury.io/js/gulp-chimp.svg)](https://badge.fury.io/js/gulp-chimp)
 [![Build Status](https://travis-ci.org/eduardogch/gulp-chimp.svg?branch=master)](https://travis-ci.org/eduardogch/gulp-chimp)
 
-## Install
+## Quick Install
 
 In the terminal run the following command
 ```
 npm install gulp-chimp --save-dev
 ```
 
-## Usage with chimp.conf.js file
+## Usage with chimp.conf.js file  [chimp.conf.js](https://github.com/eduardogch/gulp-chimp/blob/master/chimp.conf.js)
 
 ```
-/* Chimp.js - Automated Testing without Options */
+var chimp = require('gulp-chimp');
+
+/* Chimp.js - Automated/e2e Testing with a config file */
 gulp.task('chimp', function () {
     return chimp('./chimp.conf.js');
 });
 ```
 
-##### config
-
-Type: `object`<br>
-Default `true`<br>
-File  [chimp.conf.js](https://github.com/eduardogch/gulp-chimp/blob/master/chimp.conf.js)
-
-## Usage with options
+## Usage with chimp.js options
 
 ```
-/* Chimp.js - Automated Testing with Options */
+/* Chimp.js - Automated/e2e Testing with options */
 gulp.task('chimp-options', function () {
     return chimp({
-        path: './features',
+        path: './source/e2e/features', // Cucumber features files
         browser: 'chrome',
+        singleRun: true,
         debug: true,
         log: 'info',
         timeout: 60000,
@@ -48,12 +45,17 @@ gulp.task('chimp-options', function () {
 ##### path
 
 Type: `string`<br>
-Default: `./features`
+Default: `./source/e2e/features`
 
 ##### browser
 
 Type: `string`<br>
 Default `chrome`
+
+##### singleRun
+
+Type: `boolean`<br>
+Default `true`
 
 ##### debug
 

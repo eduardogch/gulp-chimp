@@ -1,6 +1,6 @@
 {
   "name": "gulp-chimp",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Gulp plugin to interact with the Chimp.js",
   "license": "MIT",
   "main": "index.js",
@@ -17,8 +17,7 @@
   "scripts": {
     "start": "node_modules/.bin/gulp start",
     "e2e": "node_modules/.bin/gulp chimp",
-    "test": "node_modules/.bin/mocha",
-    "coverage": "node_modules/.bin/istanbul cover _mocha"
+    "test": "node_modules/.bin/mocha source/tdd/**/*.spec.js"
   },
   "keywords": [
     "gulp",
@@ -34,16 +33,16 @@
   "dependencies": {
     "async": "^2.0.1",
     "chimp": "^0.41.1",
-    "gulp-util": "^3.0.7",
-    "through2": "^2.0.1"
+    "gulp-util": "^3.0.7"
   },
   "devDependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
-    "istanbul": "^0.4.3",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.1.0",
+    "istanbul": "^0.4.3",
     "mocha": "^2.5.3",
+    "mocha-istanbul": "^0.3.0",
     "morgan": "^1.7.0",
     "should": "9.0.0"
   }

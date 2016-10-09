@@ -16,7 +16,7 @@ module.exports = {
     showXolvioMessages: true,
 
     // - - - - CUCUMBER - - - -
-    path: './features',
+    path: './source/e2e/features',
     format: 'pretty',
     tags: '~@ignore',
     singleSnippetPerFile: true,

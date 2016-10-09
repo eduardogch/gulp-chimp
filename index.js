@@ -17,9 +17,7 @@ function createOutputFolder(pathOutput, cb) {
 
 function runChimp(optionsGulp, cb) {
     var options = require('./chimp.conf.js');
-    options._ = [
-        './node_modules/.bin/chimp.js'
-    ];
+    options._ = ['./node_modules/.bin/chimp.js'];
 
     if (typeof optionsGulp === 'object') {
         options.path = optionsGulp.path;
@@ -28,13 +26,16 @@ function runChimp(optionsGulp, cb) {
         options.timeout = optionsGulp.timeout;
         options.port = optionsGulp.port;
     } else {
-        //TODO Read file as a stream with gulp
+        var configFile = path.resolve(process.cwd() + optionsGulp);
+        options = require(configFile);
     }
 
     var chimp = new Chimp(options);
     chimp.run(function () {
         cb();
-        process.exit(1);
+        if (options.singleRun || options.singleRun === 'undefined') {
+            process.exit(1);
+        }
     });
 }
 
