@@ -25,7 +25,8 @@ gulp.task('chimp', function () {
 });
 ```
 
-Cucumber HTML Report
+## Cucumber HTML Report
+
 ![alt tag](https://github.com/eduardogch/gulp-chimp/raw/master/cucumber-html-report.png)
 
 ## Usage with chimp.js options
