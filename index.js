@@ -17,13 +17,13 @@ function createOutputFolder(pathOutput, cb) {
     cb();
 }
 
-function createCucumberReport(cb) {
+function createCucumberReport(options, cb) {
     reporter.generate({
-        theme: 'bootstrap',
-        jsonFile: 'e2e_output/cucumber.json',
-        output: 'e2e_output/report/cucumber.html',
-        reportSuiteAsScenarios: true,
-        launchReport: false
+        theme: (options.theme) ? options.theme : 'bootstrap',
+        jsonFile: (options.jsonFile) ? options.jsonFile : 'e2e_output/cucumber.json',
+        output: (options.output) ? options.output : 'e2e_output/report/cucumber.html',
+        reportSuiteAsScenarios: (options.reportSuiteAsScenarios) ? options.reportSuiteAsScenarios : true,
+        launchReport: (options.launchReport) ? options.launchReport : true
     });
     cb();
 }
@@ -39,6 +39,7 @@ function runChimp(optionsGulp, cb) {
         options.timeout = optionsGulp.timeout;
         options.singleRun = optionsGulp.singleRun;
         options.port = optionsGulp.port;
+        options.reportHTML = optionsGulp.reportHTML;
     } else {
         var configFile = path.resolve(process.cwd() + optionsGulp);
         options = require(configFile);
@@ -48,7 +49,9 @@ function runChimp(optionsGulp, cb) {
     chimp.run(function () {
         async.series([
             function (cb) {
-                createCucumberReport(cb);
+                if (options.reportHTML) {
+                    createCucumberReport(options, cb);
+                }
             },
             function () {
                 if (options.singleRun) {

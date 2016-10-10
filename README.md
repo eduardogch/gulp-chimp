@@ -25,6 +25,9 @@ gulp.task('chimp', function () {
 });
 ```
 
+Cucumber HTML Report
+![alt tag](https://raw.githubusercontent.com/package/gulp-chimp/master/cucumber-html-report.png)
+
 ## Usage with chimp.js options
 
 ```
@@ -32,12 +35,13 @@ gulp.task('chimp', function () {
 gulp.task('chimp-options', function () {
     return chimp({
         path: './source/e2e/features', // Cucumber features files
-        browser: 'chrome',
-        singleRun: true,
+        browser: 'phantomjs',
         debug: true,
+        singleRun: false,
         log: 'info',
         timeout: 60000,
-        port: 2345
+        port: 2345,
+        reportHTML: true
     });
 });
 ```
@@ -76,3 +80,8 @@ Default `60000`
 
 Type: `number`<br>
 Default `2356`
+
+##### reportHTML
+
+Type: `boolean`<br>
+Default `true`

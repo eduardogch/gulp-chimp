@@ -1,6 +1,6 @@
 {
   "name": "gulp-chimp",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Gulp plugin to interact with the Chimp.js",
   "license": "MIT",
   "main": "index.js",
