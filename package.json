@@ -33,6 +33,7 @@
   "dependencies": {
     "async": "^2.0.1",
     "chimp": "^0.41.1",
+    "cucumber-html-reporter": "^0.2.16",
     "gulp-util": "^3.0.7"
   },
   "devDependencies": {

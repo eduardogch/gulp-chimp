@@ -13,11 +13,13 @@ gulp.task('chimp', ['nodemon'], () => {
 gulp.task('chimp-options', ['nodemon'], () => {
     return chimp({
         path: './source/e2e/features',
-        browser: 'chrome',
+        browser: 'phantomjs',
         debug: true,
+        singleRun: false,
         log: 'info',
         timeout: 60000,
-        port: 2345
+        port: 2345,
+        reportHTML: true
     });
 });
 

@@ -3,6 +3,7 @@ const async = require('async');
 const path = require('path');
 const fs = require('fs');
 const Chimp = require('chimp');
+const reporter = require('cucumber-html-reporter');
 const PLUGIN_NAME = 'gulp-chimp';
 
 function createOutputFolder(pathOutput, cb) {
@@ -10,8 +11,20 @@ function createOutputFolder(pathOutput, cb) {
     if (!fs.existsSync(e2eOutput)) {
         fs.mkdirSync(e2eOutput);
         fs.mkdirSync(e2eOutput + '/logs');
+        fs.mkdirSync(e2eOutput + '/report');
         fs.mkdirSync(e2eOutput + '/screenshots');
     }
+    cb();
+}
+
+function createCucumberReport(cb) {
+    reporter.generate({
+        theme: 'bootstrap',
+        jsonFile: 'e2e_output/cucumber.json',
+        output: 'e2e_output/report/cucumber.html',
+        reportSuiteAsScenarios: true,
+        launchReport: false
+    });
     cb();
 }
 
@@ -24,6 +37,7 @@ function runChimp(optionsGulp, cb) {
         options.browser = optionsGulp.browser;
         options.log = optionsGulp.log;
         options.timeout = optionsGulp.timeout;
+        options.singleRun = optionsGulp.singleRun;
         options.port = optionsGulp.port;
     } else {
         var configFile = path.resolve(process.cwd() + optionsGulp);
@@ -32,10 +46,17 @@ function runChimp(optionsGulp, cb) {
 
     var chimp = new Chimp(options);
     chimp.run(function () {
+        async.series([
+            function (cb) {
+                createCucumberReport(cb);
+            },
+            function () {
+                if (options.singleRun) {
+                    process.exit(1);
+                }
+            }
+        ]);
         cb();
-        if (options.singleRun || options.singleRun === 'undefined') {
-            process.exit(1);
-        }
     });
 }
 

@@ -4,7 +4,7 @@ Feature: Use browser inside steps
   I want to have webdriver available to me in my steps
   So that I don't have to configure my world object and I focus on testing
 
-  @watch
+  @watch, @focus
   Scenario: Visit Google
     When  I visit "http://www.google.com"
     Then  I see the title of "Google"

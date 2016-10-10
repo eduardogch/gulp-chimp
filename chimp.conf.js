@@ -27,8 +27,19 @@ module.exports = {
     captureAllStepScreenshots: false,
     saveScreenshotsToDisk: true,
     saveScreenshotsToReport: true,
-    jsonOutput: './e2e_output/json',
+    jsonOutput: './e2e_output/cucumber.json',
     conditionOutput: true,
+
+    // - - - - GULP CHIMP - - - -
+    singleRun:  true,
+
+    // - - - - CUCUMBER REPORT - - - -
+    htmlReport: true,
+    theme: 'bootstrap',
+    jsonFile: 'e2e_output/cucumber.json',
+    output: 'e2e_output/report/cucumber.html',
+    reportSuiteAsScenarios: true,
+    launchReport: true,
 
     // - - - - SELENIUM  - - - -
     browser: 'phantomjs',
