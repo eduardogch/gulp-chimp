@@ -16,7 +16,7 @@ module.exports = {
     showXolvioMessages: true,
 
     // - - - - GULP CHIMP - - - -
-    singleRun:  true,
+    singleRun:  false,
     pathOutput: './e2e_output',
 
     // - - - - CUCUMBER - - - -

@@ -15,11 +15,8 @@ gulp.task('chimp-options', () => {
         path: './source/e2e/features',
         browser: 'phantomjs',
         pathOutput: '/e2e_output',
-        debug: true,
         singleRun: false,
-        log: 'info',
-        timeout: 60000,
-        port: 2345,
+        debug: false,
         htmlReport: true
     });
 });

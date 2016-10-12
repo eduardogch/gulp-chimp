@@ -33,13 +33,12 @@ function runChimp(optionsGulp, cb) {
     if (typeof optionsGulp === 'object') {
         options.path = optionsGulp.path;
         options.browser = optionsGulp.browser;
-        options.log = optionsGulp.log;
-        options.timeout = optionsGulp.timeout;
+        options.pathOutput = optionsGulp.pathOutput;
         options.singleRun = optionsGulp.singleRun;
-        options.port = optionsGulp.port;
+        options.debug = optionsGulp.debug;
         options.reportHTML = optionsGulp.reportHTML;
     } else {
-        var configFile = path.resolve(process.cwd() + '/' +optionsGulp);
+        var configFile = path.resolve(process.cwd() + '/' + optionsGulp);
         options = require(configFile);
     }
     options._ = ['./node_modules/.bin/chimp.js'];
