@@ -21,7 +21,7 @@ var chimp = require('gulp-chimp');
 
 /* Chimp.js - Automated/e2e Testing with a config file */
 gulp.task('chimp', function () {
-    return chimp('./chimp.conf.js');
+    return chimp('chimp.conf.js');
 });
 ```
 

@@ -30,8 +30,6 @@ function createCucumberReport(options, cb) {
 
 function runChimp(optionsGulp, cb) {
     var options = require('./chimp.conf.js');
-    options._ = ['./node_modules/.bin/chimp.js'];
-
     if (typeof optionsGulp === 'object') {
         options.path = optionsGulp.path;
         options.browser = optionsGulp.browser;
@@ -41,9 +39,10 @@ function runChimp(optionsGulp, cb) {
         options.port = optionsGulp.port;
         options.reportHTML = optionsGulp.reportHTML;
     } else {
-        var configFile = path.resolve(process.cwd() + optionsGulp);
+        var configFile = path.resolve(process.cwd() + '/' +optionsGulp);
         options = require(configFile);
     }
+    options._ = ['./node_modules/.bin/chimp.js'];
 
     var chimp = new Chimp(options);
     chimp.run(function () {
