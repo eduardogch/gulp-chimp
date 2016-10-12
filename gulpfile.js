@@ -5,21 +5,22 @@ const runSequence = require('run-sequence');
 const browserSync = require('browser-sync');
 
 /* Chimp.js - Automated Testing without Options */
-gulp.task('chimp', ['nodemon'], () => {
-    return chimp('./chimp.conf.js');
+gulp.task('chimp', () => {
+    return chimp('chimp.conf.js');
 });
 
 /* Chimp.js - Automated Testing with Options */
-gulp.task('chimp-options', ['nodemon'], () => {
+gulp.task('chimp-options', () => {
     return chimp({
         path: './source/e2e/features',
         browser: 'phantomjs',
+        pathOutput: '/e2e_output',
         debug: true,
         singleRun: false,
         log: 'info',
         timeout: 60000,
         port: 2345,
-        reportHTML: true
+        htmlReport: true
     });
 });
 

@@ -20,10 +20,10 @@ function createOutputFolder(pathOutput, cb) {
 function createCucumberReport(options, cb) {
     reporter.generate({
         theme: (options.theme) ? options.theme : 'bootstrap',
-        jsonFile: (options.jsonFile) ? options.jsonFile : 'e2e_output/cucumber.json',
-        output: (options.output) ? options.output : 'e2e_output/report/cucumber.html',
+        jsonFile: (options.jsonFile) ? options.jsonFile : options.pathOutput + '/cucumber.json',
+        output: (options.output) ? options.output : options.pathOutput + '/report/cucumber.html',
         reportSuiteAsScenarios: (options.reportSuiteAsScenarios) ? options.reportSuiteAsScenarios : true,
-        launchReport: (options.launchReport) ? options.launchReport : true
+        launchReport: options.launchReport
     });
     cb();
 }
@@ -43,23 +43,22 @@ function runChimp(optionsGulp, cb) {
         options = require(configFile);
     }
     options._ = ['./node_modules/.bin/chimp.js'];
-
     var chimp = new Chimp(options);
-    chimp.run(function () {
-        async.series([
-            function (cb) {
-                if (options.reportHTML) {
-                    createCucumberReport(options, cb);
-                }
-            },
-            function () {
-                if (options.singleRun) {
-                    process.exit(1);
-                }
+    if (options.singleRun) {
+        chimp.run(function (err) {
+            if (err) {
+                console.log(err);
             }
-        ]);
-        cb();
-    });
+            cb();
+        });
+    } else {
+        chimp.init(function (err) {
+            if (err) {
+                console.log(err);
+            }
+            cb();
+        });
+    }
 }
 
 function init(options) {
@@ -69,19 +68,34 @@ function init(options) {
         if (typeof options === 'object') {
             async.series([
                 function (cb) {
-                    createOutputFolder(options.output, cb);
+                    createOutputFolder(options.pathOutput, cb);
                 },
                 function (cb) {
                     runChimp(options, cb);
+                },
+                function (cb) {
+                    if (options.htmlReport) {
+                        createCucumberReport(options, cb);
+                    } else {
+                        cb();
+                    }
                 }
             ]);
         } else {
             async.series([
                 function (cb) {
-                    createOutputFolder('e2e_output', cb);
+                    createOutputFolder(options.pathOutput, cb);
                 },
                 function (cb) {
                     runChimp(options, cb);
+                },
+                function (cb) {
+                    options = require(path.resolve(process.cwd() + '/' + options));
+                    if (options.htmlReport) {
+                        createCucumberReport(options, cb);
+                    } else {
+                        cb();
+                    }
                 }
             ]);
         }

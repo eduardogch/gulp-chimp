@@ -37,12 +37,13 @@ gulp.task('chimp-options', function () {
     return chimp({
         path: './source/e2e/features', // Cucumber features files
         browser: 'phantomjs',
+        pathOutput: './e2e_output',
         debug: true,
         singleRun: false,
         log: 'info',
         timeout: 60000,
         port: 2345,
-        reportHTML: true
+        htmlReport: true
     });
 });
 ```
@@ -55,7 +56,12 @@ Default: `./source/e2e/features`
 ##### browser
 
 Type: `string`<br>
-Default `chrome`
+Default `phantomjs`
+
+##### pathOutput
+
+Type: `string`<br>
+Default `./e2e_output`
 
 ##### singleRun
 
@@ -82,7 +88,7 @@ Default `60000`
 Type: `number`<br>
 Default `2356`
 
-##### reportHTML
+##### htmlReport
 
 Type: `boolean`<br>
 Default `true`

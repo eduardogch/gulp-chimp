@@ -15,6 +15,10 @@ module.exports = {
     offline: false,
     showXolvioMessages: true,
 
+    // - - - - GULP CHIMP - - - -
+    singleRun:  true,
+    pathOutput: './e2e_output',
+
     // - - - - CUCUMBER - - - -
     path: './source/e2e/features',
     format: 'pretty',
@@ -30,14 +34,11 @@ module.exports = {
     jsonOutput: './e2e_output/cucumber.json',
     conditionOutput: true,
 
-    // - - - - GULP CHIMP - - - -
-    singleRun:  true,
-
     // - - - - CUCUMBER REPORT - - - -
     htmlReport: true,
     theme: 'bootstrap',
-    jsonFile: 'e2e_output/cucumber.json',
-    output: 'e2e_output/report/cucumber.html',
+    jsonFile: './e2e_output/cucumber.json',
+    output: './e2e_output/report/cucumber.html',
     reportSuiteAsScenarios: true,
     launchReport: true,
 
@@ -47,7 +48,7 @@ module.exports = {
     name: '',
     user: '',
     key: '',
-    port: 2235,
+    port: Math.floor(Math.random() * 8000) + 1000,
     host: null,
 
     // - - - - SAUCELABS - - - -
@@ -62,7 +63,7 @@ module.exports = {
         logLevel: 'silent',
         logOutput: './e2e_output/logs',
         host: '127.0.0.1',
-        port: 4445,
+        port: Math.floor(Math.random() * 8000) + 1000,
         path: '/wd/hub',
         baseUrl: 'http://localhost',
         coloredLogs: true,
@@ -113,5 +114,10 @@ module.exports = {
 
     // - - - - DEBUGGING  - - - -
     log: 'info',
-    debug: false
+    debug: false,
+    seleniumDebug: null,
+    debugCucumber: null,
+    debugBrkCucumber: null,
+    debugMocha: null,
+    debugBrkMocha: null
 };

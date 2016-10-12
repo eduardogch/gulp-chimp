@@ -6,7 +6,7 @@ Feature: Use browser inside steps
 
   @watch, @focus
   Scenario: Visit Google
-    When  I visit "http://www.google.com"
+    When  I visit "http://www.google.com.mx"
     Then  I see the title of "Google"
 
   @not-watch
