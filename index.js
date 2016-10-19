@@ -19,11 +19,11 @@ function createOutputFolder(pathOutput, cb) {
 
 function createCucumberReport(options, cb) {
     reporter.generate({
-        theme: (options.theme) ? options.theme : 'bootstrap',
-        jsonFile: (options.jsonFile) ? options.jsonFile : options.pathOutput + '/cucumber.json',
-        output: (options.output) ? options.output : options.pathOutput + '/report/cucumber.html',
-        reportSuiteAsScenarios: (options.reportSuiteAsScenarios) ? options.reportSuiteAsScenarios : true,
-        launchReport: options.launchReport
+        theme: 'bootstrap',
+        jsonFile: options.htmlReport.jsonFile,
+        output: options.htmlReport.output,
+        reportSuiteAsScenarios: options.htmlReport.reportSuiteAsScenarios,
+        launchReport: options.htmlReport.launchReport
     });
     cb();
 }
@@ -31,12 +31,19 @@ function createCucumberReport(options, cb) {
 function runChimp(optionsGulp, cb) {
     var options = require('./chimp.conf.js');
     if (typeof optionsGulp === 'object') {
-        options.path = optionsGulp.path;
+        options.path = optionsGulp.features;
         options.browser = optionsGulp.browser;
-        options.pathOutput = optionsGulp.pathOutput;
         options.singleRun = optionsGulp.singleRun;
         options.debug = optionsGulp.debug;
-        options.reportHTML = optionsGulp.reportHTML;
+
+        options.screenshotsPath = optionsGulp.output.screenshotsPath;
+        options.jsonOutput = optionsGulp.output.jsonOutput;
+
+        options.htmlReport = optionsGulp.htmlReport.enable;
+        options.jsonFile = optionsGulp.htmlReport.jsonFile;
+        options.output = optionsGulp.htmlReport.output;
+        options.reportSuiteAsScenarios = optionsGulp.htmlReport.reportSuiteAsScenarios;
+        options.launchReport = optionsGulp.htmlReport.launchReport;
     } else {
         var configFile = path.resolve(process.cwd() + '/' + optionsGulp);
         options = require(configFile);
@@ -73,7 +80,7 @@ function init(options) {
                     runChimp(options, cb);
                 },
                 function (cb) {
-                    if (options.htmlReport) {
+                    if (options.htmlReport.enable) {
                         createCucumberReport(options, cb);
                     } else {
                         cb();
@@ -90,7 +97,7 @@ function init(options) {
                 },
                 function (cb) {
                     options = require(path.resolve(process.cwd() + '/' + options));
-                    if (options.htmlReport) {
+                    if (options.htmlReport.enable) {
                         createCucumberReport(options, cb);
                     } else {
                         cb();

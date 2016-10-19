@@ -32,20 +32,28 @@ gulp.task('chimp', function () {
 ## Usage with chimp.js options
 
 ```
-/* Chimp.js - Automated/e2e Testing with options */
-gulp.task('chimp-options', function () {
+gulp.task('chimp-options', () => {
     return chimp({
-        path: './source/e2e/features', // Cucumber features files
+        features: './source/e2e/features', // Cucumber features files
         browser: 'phantomjs',
-        pathOutput: '/e2e_output',
-        singleRun: false,
+        singleRun: true,
         debug: false,
-        htmlReport: true
+        output: {
+            screenshotsPath: './e2e_output/screenshots',
+            jsonOutput: './e2e_output/cucumber.json'
+        },
+        htmlReport: {
+            enable: true,
+            jsonFile: './e2e_output/cucumber.json',
+            output: './e2e_output/report/cucumber.html',
+            reportSuiteAsScenarios: true,
+            launchReport: true
+        }
     });
 });
 ```
 
-##### path
+##### features
 
 Type: `string`<br>
 Default: `./source/e2e/features`
@@ -54,11 +62,6 @@ Default: `./source/e2e/features`
 
 Type: `string`<br>
 Default `phantomjs`
-
-##### pathOutput
-
-Type: `string`<br>
-Default `./e2e_output`
 
 ##### singleRun
 
@@ -70,7 +73,27 @@ Default `true`
 Type: `boolean`<br>
 Default `false`
 
+##### output
+
+Type: `object`<br>
+Default
+```
+output: {
+    screenshotsPath: './e2e_output/screenshots',
+    jsonOutput: './e2e_output/cucumber.json'
+}
+```
+
 ##### htmlReport
 
-Type: `boolean`<br>
-Default `true`
+Type: `object`<br>
+Default
+```
+htmlReport: {
+    enable: true,
+    jsonFile: './e2e_output/cucumber.json',
+    output: './e2e_output/report/cucumber.html',
+    reportSuiteAsScenarios: true,
+    launchReport: true
+}
+```

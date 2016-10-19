@@ -12,12 +12,21 @@ gulp.task('chimp', () => {
 /* Chimp.js - Automated Testing with Options */
 gulp.task('chimp-options', () => {
     return chimp({
-        path: './source/e2e/features',
+        features: './source/e2e/features',
         browser: 'phantomjs',
-        pathOutput: '/e2e_output',
-        singleRun: false,
+        singleRun: true,
         debug: false,
-        htmlReport: true
+        output: {
+            screenshotsPath: './e2e_output/screenshots',
+            jsonOutput: './e2e_output/cucumber.json',
+        },
+        htmlReport: {
+            enable: true,
+            jsonFile: './e2e_output/cucumber.json',
+            output: './e2e_output/report/cucumber.html',
+            reportSuiteAsScenarios: true,
+            launchReport: true,
+        }
     });
 });
 
