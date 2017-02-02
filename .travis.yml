@@ -1,7 +1,8 @@
 language: node_js
+cache: yarn
 node_js:
-    - "0.12"
+    - "6.9.4"
 before_script:
-    - npm install
+    - yarn install
 script:
-    - npm test
+    - yarn test
