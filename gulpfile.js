@@ -51,9 +51,10 @@ gulp.task('browser-sync', function () {
     });
 });
 
-gulp.task('default', () => {
+gulp.task('default', (callback) => {
     runSequence(
         'nodemon',
-        'browser-sync'
+        'browser-sync',
+        callback
     );
 });

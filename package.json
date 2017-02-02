@@ -1,6 +1,6 @@
 {
   "name": "gulp-chimp",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Gulp plugin to interact with the Chimp.js",
   "license": "MIT",
   "main": "index.js",
@@ -32,8 +32,8 @@
   ],
   "dependencies": {
     "async": "^2.0.1",
-    "chimp": "^0.41.1",
-    "cucumber-html-reporter": "^0.2.16",
+    "chimp": "^0.47.1",
+    "cucumber-html-reporter": "^0.3.7",
     "gulp-util": "^3.0.7"
   },
   "devDependencies": {
@@ -43,10 +43,10 @@
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.1.0",
     "istanbul": "^0.4.3",
-    "mocha": "^2.5.3",
+    "mocha": "^3.2.0",
     "mocha-istanbul": "^0.3.0",
     "morgan": "^1.7.0",
     "run-sequence": "^1.2.2",
-    "should": "9.0.0"
+    "should": "11.2.0"
   }
 }

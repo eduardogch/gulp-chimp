@@ -1,3 +1,10 @@
+var gutil           = require('gulp-util');
+var portSelenium    = Math.floor(Math.random() * 5000) + 1000;
+var portWebDriverio = Math.floor(Math.random() * 9000) + 1000;
+
+gutil.log('Selenium running in port:    ' + gutil.colors.bold.white.bgBlue(portSelenium));
+gutil.log('WebDriverio running in port: ' + gutil.colors.bold.white.bgBlue(portWebDriverio));
+
 module.exports = {
     // - - - - CHIMP - - - -
     watch: true,
@@ -47,7 +54,7 @@ module.exports = {
     name: '',
     user: '',
     key: '',
-    port: Math.floor(Math.random() * 8000) + 1000,
+    port: portSelenium,
     host: null,
 
     // - - - - SAUCELABS - - - -
@@ -62,7 +69,7 @@ module.exports = {
         logLevel: 'silent',
         logOutput: './e2e_output/logs',
         host: '127.0.0.1',
-        port: Math.floor(Math.random() * 8000) + 1000,
+        port: portWebDriverio,
         path: '/wd/hub',
         baseUrl: 'http://localhost',
         coloredLogs: true,
